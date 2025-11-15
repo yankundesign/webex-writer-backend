@@ -26,7 +26,7 @@ export function buildPrompt(context: PromptContext): string {
   const rules = getRelevantRules(intent);
   
   // Build the prompt
-  return `You are a Webex UX writing expert. Generate 3 distinct text variants following Webex guidelines.
+  return `You are a Webex UX writing expert. Generate exactly 2 distinct text variants following Webex guidelines.
 
 ORIGINAL TEXT: "${originalText}"
 INTENT: ${intent || 'general UI text'}
@@ -50,15 +50,16 @@ After: "${tonePattern.example.after}"
 ${formatRulesForPrompt(rules)}
 
 CRITICAL REQUIREMENTS:
-1. Preserve ALL placeholders exactly: {name}, {{email}}, {variable}, etc.
-2. Each variant must be meaningfully different from the others
-3. Apply Webex voice: benefit-led, clear, action-oriented, plain language
-4. Follow the tone pattern for ${audience} audience
-5. Apply the specific rules listed above
-6. Keep variants concise and scannable
+1. Generate EXACTLY 2 variants (not 3, not 1, exactly 2)
+2. Preserve ALL placeholders exactly: {name}, {{email}}, {variable}, etc.
+3. Each variant must be meaningfully different from the other
+4. Apply Webex voice: benefit-led, clear, action-oriented, plain language
+5. Follow the tone pattern for ${audience} audience
+6. Apply the specific rules listed above
+7. Keep variants concise and scannable
 
 RETURN FORMAT:
-Return a valid JSON object with this exact structure:
+Return a valid JSON object with this exact structure (2 variants only):
 {
   "variants": [
     {
@@ -69,11 +70,6 @@ Return a valid JSON object with this exact structure:
     {
       "text": "second variant here",
       "rationale": "rationale for second variant",
-      "appliedRules": ["rule-id-1", "rule-id-2"]
-    },
-    {
-      "text": "third variant here",
-      "rationale": "rationale for third variant",
       "appliedRules": ["rule-id-1", "rule-id-2"]
     }
   ]

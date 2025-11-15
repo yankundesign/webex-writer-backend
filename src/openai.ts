@@ -60,9 +60,9 @@ export async function generateVariants(
       throw new Error('Invalid response format: missing variants array');
     }
     
-    // Ensure we have 3 variants
-    if (result.variants.length !== 3) {
-      throw new Error(`Expected 3 variants, got ${result.variants.length}`);
+    // Ensure we have 2 variants
+    if (result.variants.length !== 2) {
+      throw new Error(`Expected 2 variants, got ${result.variants.length}`);
     }
     
     // Validate each variant
