@@ -1,0 +1,5 @@
+# Local development environment variables
+# Add your OpenAI API key here for local testing
+# DO NOT commit this file to git
+OPENAI_API_KEY=sk-your-api-key-here
+
