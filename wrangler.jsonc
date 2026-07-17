@@ -7,6 +7,12 @@
 	"name": "webex-writer-backend",
 	"main": "src/index.ts",
 	"compatibility_date": "2025-11-15",
+	"routes": [
+		{
+			"pattern": "yankun.design/api/*",
+			"zone_name": "yankun.design"
+		}
+	],
 	"observability": {
 		"enabled": true
 	}
